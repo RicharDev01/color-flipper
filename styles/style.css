@@ -1,7 +1,7 @@
 /* SETTINGS */
 :root {
 
-  --background-color: #FFFFFF;
+  --background-color: rgb(51, 247, 133);
   --color-text-dark: #000000;
   --color-text-light: #FFFFFF;
 
@@ -61,9 +61,9 @@ body { background-color: var(--background-color); }
   color: var(--color-text-dark);
   text-align: center;
 }
-.box-content-flipper{
+.box-content-flipper{  
   padding: 1rem;
-  font-size: 7rem;
+  font-size: 5.5rem;
   border-radius: 1.5rem;
   background-color:var(--bg-color-container);
   color: var(--color-text-light);
@@ -71,8 +71,23 @@ body { background-color: var(--background-color); }
 
 /* muestra el color, con el texto del mismo color */
 .color-content-flipper{
+  display: block;
   font-size: inherit;
-  color: var(--background-color)
+  color: var(--background-color);
+}
+.color-content-flipper--animated {
+  animation-name: copyText;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+@keyframes copyText {
+  from { 
+    transform: scale(.7);
+  }
+  to{
+    transform: scale(1);
+  }
 }
 
 /* boton que ayudara a cambiar de forma aleatoria el color */
@@ -84,11 +99,15 @@ body { background-color: var(--background-color); }
   margin-top: 3rem;
   color: var(--color-text-dark); 
   box-shadow: 0 .4rem 0.2rem ;
-  transition: box-shadow .1s, transform .1s;
+  transition: box-shadow .1s, transform .1s, background-color .1s;
   cursor: pointer;
 }
 
 .btn-change-color:active {
   transform: translateY(0.2rem);
   box-shadow: 0 0 0 ;
+}
+
+.btn-change-color:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }

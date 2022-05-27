@@ -18,5 +18,15 @@ function changeColor(){
 
 }
 
+contentFlipper.addEventListener('click', () => {
+  
+  navigator.clipboard.writeText(contentFlipper.textContent)
+  contentFlipper.classList.add('color-content-flipper--animated')
+  
+  setTimeout(() => {
+    contentFlipper.classList.remove('color-content-flipper--animated')
+  }, 600)
+  
+} )
 
 btnChangeColor.addEventListener('click', changeColor)
